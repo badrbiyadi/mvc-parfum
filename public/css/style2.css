@@ -1,0 +1,124 @@
+/*
+ Generals
+*/
+
+
+/*
+ Top Header
+*/
+
+
+.notif{
+    position: relative;
+    right: 2px;
+    top: -10px !important;
+    font-size: small;
+}
+
+/*
+  Header
+*/
+
+.nav-pink,.bg-pink {
+  background-color: #C751B0;
+}
+.nav-pink .nav-item  {
+  border-radius: 5px ; 
+  margin-left: 5px; 
+}
+.nav-pink .nav-item :hover, .nav-pink .nav-item.active {
+  background-color: #fff;
+}
+.nav-pink .nav-item:hover a, .nav-pink .nav-item.active a {
+  color:  #C751B0;
+}
+
+.nav-pink .nav-item a {
+  color: #fff;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+  right: 0;
+}
+
+.dropdown-btn:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content  ul li{
+  background-color: #F9C4EF;
+}
+
+/*
+  Carousel
+*/
+
+.carousel-item {
+  max-height: 70vh;
+  align-items: center;
+}
+.nouveaute {
+  background-color: #F9C4EF;
+} 
+
+.shadow-pink {
+  box-shadow: 2px 3px 7px #C751B0;
+}
+.shadow-pink:hover {
+  box-shadow: 4px 7px 10px #C751B0;
+}
+
+.tag-new {
+  position: absolute;
+  
+  top: 0;
+  right: 0;
+  
+}
+
+/*
+  Social Media 
+*/
+
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}

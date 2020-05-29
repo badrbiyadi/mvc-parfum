@@ -4,7 +4,13 @@ class Controller extends Database{
 
     protected static $vars = [];
 
+    public $titlePage = "";
+
     public static $message;
+
+    public static function setTitle($title) {
+        self::$title = $title;
+    }
 
 
     public static function CreateView($viewName, $data = []) {

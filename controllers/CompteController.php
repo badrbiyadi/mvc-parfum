@@ -5,7 +5,6 @@ class CompteController extends Controller {
     private $email;
     private $username;
     private $password;
-    private $pannier;
     private $userId;
     private $imgProfil=null;
     private $fields = array('email', 'username', 'password', 'repassword');
@@ -21,10 +20,9 @@ class CompteController extends Controller {
             $this->email = $_POST['email'];
             $this->username = $_POST['username'];
             $this->password = $_POST['password'];
-            $this->pannier = null;
             $this->userId = User::getAutoIncrement() - 1;
          
-            $this->compte = new Compte($this->email, $this->username, $this->password, $this->pannier, $this->userId, $this->imgProfil);
+            $this->compte = new Compte($this->email, $this->username, $this->password, $this->userId, $this->imgProfil);
             $this->compte->createCompteDB();
 
             $this->compte = Compte::selectCompte('email', $this->email);
@@ -35,11 +33,11 @@ class CompteController extends Controller {
     }
 
     public static function allUsers() {
-        return Database::query("SELECT email, username, pannier, userId, imgProfil, statut FROM compte ");
+        return Database::query("SELECT email, username, userId, imgProfil, statut FROM compte ");
     }
 
     public function showUser($email) {
-        return Database::query("SELECT email, username, pannier, userId, imgProfil, statut FROM compte WHERE email='$email'");
+        return Database::query("SELECT email, username, userId, imgProfil, statut FROM compte WHERE email='$email'");
     }
 
     private function errorHandling() {

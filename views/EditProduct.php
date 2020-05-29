@@ -1,8 +1,8 @@
-<?php require_once('parts/header.php'); ?>
+<?php require_once('parts/header2.php'); ?>
 <div class="container py-4" style="min-height: 100vh;">
 <?php if(isset($_GET['id']) && $_GET['id'] != null): 
         $prod = Produit::selectProduct('idProd',$_GET['id']);
-        print_r($prod);
+     
         if(empty($prod)): ?>
             <div class="alert alert-danger" role="alert">Please check if the product exists </div>
         <?php  

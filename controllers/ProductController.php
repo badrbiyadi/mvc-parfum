@@ -32,6 +32,7 @@ class ProductController extends Controller {
         $this->prod = new Produit($this->title, $this->desc, $this->genre, $this->prix, $this->img, $this->marqueId);
 
         $this->prod->createProductDB();    
+        Controller::redirect('allProducts?created_product');
     }
 
     public function editProduct() {
@@ -47,10 +48,27 @@ class ProductController extends Controller {
             $this->prod = new Produit($this->title, $this->desc, $this->genre, $this->prix, $this->img, $this->marqueId);
             print_r($this->prod);
             $this->prod->updateProductDB($this->id); 
-            Controller::redirect('index?updated');
+            Controller::redirect('allProducts?updated');
 
         }else {
-            Controller::redirect('admin>no_id');
+            Controller::redirect('admin?no_id');
+        }
+    }
+
+    public function deleteProduct() {
+        if(!isset($_GET['id'])) {
+            Controller::redirect('allProducts?no_id');
+        }else {
+            $this->id = $_GET['id'];
+            $prod = Produit::selectProduct('idProd', $this->id);
+
+            if(!empty($prod['imgProd'])) {
+                unlink('public/upload/products/'.$prod['imgProd']);
+            }
+
+            Produit::deleteProductDB($this->id);
+            Controller::redirect('allProducts?deleted_prod');
+
         }
     }
 

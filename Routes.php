@@ -1,5 +1,6 @@
 <?php  
     //pages 
+    
     Route::set('index.php', function() {
         Controller::CreateView('Index');
     });
@@ -10,6 +11,7 @@
 
     Route::set('admin', function() {
         Controller::CreateView('Admin');
+        
     });
 
     Route::set('about-us', function() {
@@ -78,15 +80,33 @@
         $product->editProduct();
     });
 
+    Route::set('deleteProduct.php', function() {
+        $product = new ProductController();
+        $product->deleteProduct();
+    });
+
     // Marque
 
     Route::set('createMarque', function() {
         Controller::CreateView('CreateMarque');
     });
+    Route::set('editMarque', function() {
+        Controller::CreateView('EditMarque');
+    });
 
     Route::set('createBrand.php', function() {
         $marque = new MarqueController();
         $marque->createMarque();
+    });
+
+    Route::set('editBrand.php', function() {
+        $marque = new MarqueController();
+        $marque->editMarque();
+    });
+
+    Route::set('deleteBrand.php', function() {
+        $marque = new MarqueController();
+        $marque->deleteBrand();
     });
     
     // Admin
@@ -95,7 +115,15 @@
         Controller::CreateView('AllProducts');
     });
 
+    Route::set('allBrands', function() {
+        Controller::CreateView('AllBrands');
+    });
+    Route::set('reset', function() {
+        Database::resetAll();
+    });
     
+    
+
 
     
 

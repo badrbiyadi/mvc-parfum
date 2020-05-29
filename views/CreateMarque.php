@@ -22,7 +22,7 @@
                         
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Image de marque</label>
-                        <input type="file" class="form-control-file" id="file">
+                        <input type="file" class="form-control-file" id="file" name="file">
                     </div>
                 </div>
                 <div class="col-5">

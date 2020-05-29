@@ -61,6 +61,14 @@ class Produit extends Database{
 
     }
 
+    public static function deleteProductDB($id) {
+        $request = "DELETE FROM produit WHERE idProd = :id;";
+        $stmt = self::con()->prepare($request);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return true;
+    }
+
     public static function getAutoIncrement() {
         return self::$autoIncrement = Database::query("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'mvc' AND TABLE_NAME = 'produit'")[0]['AUTO_INCREMENT'];
     }

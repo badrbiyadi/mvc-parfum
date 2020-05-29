@@ -3,18 +3,16 @@ class Compte extends Database{
     private $email;
     private $username;
     private $password;
-    private $pannier;
     private $userId;
     private $imgProfil;
     private $statut = 0;
 
      
 
-    public function __construct($email, $username, $password, $pannier, $userId, $imgProfil=null) {
+    public function __construct($email, $username, $password, $userId, $imgProfil=null) {
         $this->email = $email;  
         $this->username = $username;  
-        $this->password = $password;  
-        $this->pannier = $pannier;  
+        $this->password = $password;   
         $this->userId = $userId;  
         $this->imgProfil = $imgProfil;  
     }
@@ -28,19 +26,18 @@ class Compte extends Database{
     }
 
     public function createCompteDB() {
-        $request = "INSERT INTO compte (email, username, password, pannier, userId, imgProfil) VALUES (:email, :username, :password, :pannier, :userId, :imgProfil);";
+        $request = "INSERT INTO compte (email, username, password,  userId, imgProfil) VALUES (:email, :username, :password, :userId, :imgProfil);";
         $stmt = self::con()->prepare($request);
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':username', $this->username);
         $stmt->bindParam(':password', $this->password);
-        $stmt->bindParam(':pannier', $this->pannier);
         $stmt->bindParam(':userId', $this->userId);
         $stmt->bindParam(':imgProfil', $this->imgProfil);
         $stmt->execute();
         return true;
     }
     public function copy(Compte $compte){
-        return new self($compte->email, $compte->username, $compte->password, $compte->pannier, $compte->userId, $compte->imgProfil);
+        return new self($compte->email, $compte->username, $compte->password, $compte->userId, $compte->imgProfil);
     }
 
 
@@ -102,26 +99,6 @@ class Compte extends Database{
     public function setPassword($password)
     {
         $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of pannier
-     */ 
-    public function getPannier()
-    {
-        return $this->pannier;
-    }
-
-    /**
-     * Set the value of pannier
-     *
-     * @return  self
-     */ 
-    public function setPannier($pannier)
-    {
-        $this->pannier = $pannier;
 
         return $this;
     }

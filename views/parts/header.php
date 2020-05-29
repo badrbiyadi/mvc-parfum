@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>template</title>
+	<title></title>
 	<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="public/css/fontawesome.min.css">
 	<link rel="stylesheet" type="text/css" href="public/css/style2.css">
@@ -56,6 +56,7 @@
 						<div class="">
 							<h5>Panier</h5>
 							<a href="<?php echo (isset($_SESSION['userId'])) ?  '': 'login'; ?>">0.00 Dh</a>
+							<a href="<?php echo (isset($_SESSION['userId'])) ?  'admin': ''; ?>">admin</a>
 						</div>
 					</div>
 				</div>

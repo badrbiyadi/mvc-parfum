@@ -1,9 +1,5 @@
-<?php require_once('parts/header.php'); ?>
-<?php 
-	if(!isset($_SESSION['userStatus']) || $_SESSION['userStatus'] < 1):
-        Controller::redirect('index?access_denied');
-    else:
-?>
+<?php require_once('parts/header2.php'); ?>
+
     <div class="container py-4" style="min-height: 100vh;">
         <?php if(isset($_GET['message'])): ?>
             <div class="alert alert-warning" role="alert">
@@ -36,11 +32,6 @@
         </form>
 
     </div>
-<?php  
-    
-    endif; 
-    
-    
-    ?>
+
     
 <?php require_once('parts/footer.php'); ?>

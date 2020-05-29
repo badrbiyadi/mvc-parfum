@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php session_start(); 
+	if(!isset($_SESSION['userStatus']) || $_SESSION['userStatus']<1)
+		Controller::redirect('index?access_denied');
+?>
 <!DOCTYPE>
 <html>
 <head>
@@ -6,7 +9,7 @@
 	<title>template</title>
 	<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="public/css/fontawesome.min.css">
-	<link rel="stylesheet" type="text/css" href="public/css/style2.css">
+	<link rel="stylesheet" type="text/css" href="public/css/style.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	<script src="public/js/jquery.min.js" ></script>
 	<script  src="public/js/popper.min.js"></script>	

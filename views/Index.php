@@ -45,56 +45,63 @@
 		</div>
 	</section>
 
-	<section class="nouveaute py-4">
-		<div class="container">
+	<section class="nouveaute py-4" style="min-height: 500px;">
+		<div class="container" >
 			<h2 class="text-center py-4">Nouveaute</h2>
+				<?php $prodsIndex = Produit::selectProductLimit('4');
+					if(empty($prodsIndex)):
+				?>
+				<div>
+						<p>We will add some products soon</p>
+				</div>
+
+				<?php else: ?>
+			<!-- Row -->	
 			<div class="row">
+				
+
+					<?php	
+						foreach ($prodsIndex as $key => $prod) :
+								
+				?>
 				<div class="col-md-3 col-sm-6 col-xs-12 my-2">
-					<div class="card shadow-pink" style=" position: relative;">
+					<div class="card shadow-pink px-3" style=" position: relative;">
 						<div class="tag-new">
 							<h3><span class="badge badge-danger bg-pink ">New</span></h3>
 						</div>
-					  <img class="card-img-top" src="public/img/product_1.jpg" alt="Card image cap">
-					  <div class="card-body">
-					    <h5 class="card-title"><strong>Card title</strong></h5>
-					    <p class="card-text">300.00 DH</p>
-					    <div class="text-center">
-					    	<a href="#" class="btn btn-info bg-pink px-3">Ajouter au panier</a>
-					    </div>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 my-2">
-					<div class="card shadow-pink" style=" position: relative;">
-						<div class="tag-new">
-							<h3><span class="badge badge-danger bg-pink ">New</span></h3>
+
+						<div class="card-body">
+							<div style="min-height:200px; max-height:200px;">
+								<img class="card-img-top" src="public/img/product_1.jpg" alt="Card image cap">
+							</div>
+							<div style="height:100px;">
+								<h5 class="card-title"><strong><?= $prod['titleProd'] ?></strong></h5>
+							</div>
+							
+							<p class="card-text"><?= $prod['prixProd'] ?>.00 DH</p>
+							<?php if(!isset($_SESSION['userId'])): ?>
+								<a href="login" class="btn btn-info bg-pink px-3">Ajouter Au Panier</a>
+							<?php elseif($_SESSION['userStatus']>0): ?>
+							<?php else: ?>
+							
+					    	<form action="addToPanier.php?user_id=<?= $_SESSION['userId'] ?>&prod_id=<?= $prod['idProd'] ?>&redirect=index" method="POST">
+								<div class="form-row align-items-center">
+									<div class="col-4 ">
+										<input type="number" name="qte" class="form-control" value="1" required>
+									</div>
+									<div class="col-8 ">
+										<button type="submit" class="btn btn-info bg-pink px-3" name="submit">Ajouter</button>
+									</div>
+								</div>
+							</form>
+							<?php endif; ?>
 						</div>
-					  <img class="card-img-top" src="public/img/product_1.jpg" alt="Card image cap">
-					  <div class="card-body">
-					    <h5 class="card-title"><strong>Card title</strong></h5>
-					    <p class="card-text">300.00 DH</p>
-					    <div class="text-center">
-					    	<a href="#" class="btn btn-info bg-pink px-3">Ajouter au panier</a>
-					    </div>
-					  </div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 my-2">
-					<div class="card shadow-pink" style=" position: relative;">
-						<div class="tag-new">
-							<h3><span class="badge badge-danger bg-pink ">New</span></h3>
-						</div>
-					  <img class="card-img-top" src="public/img/product_1.jpg" alt="Card image cap">
-					  <div class="card-body">
-					    <h5 class="card-title"><strong>Card title</strong></h5>
-					    <p class="card-text">300.00 DH</p>
-					    <div class="text-center">
-					    	<a href="#" class="btn btn-info bg-pink px-3">Ajouter au panier</a>
-					    </div>
-					  </div>
-					</div>
-				</div>
+				<?php endforeach;  ?>
 			</div>
+			<!-- /Row -->	
+			<?php endif; ?>
 		</div>
 	</section>
 

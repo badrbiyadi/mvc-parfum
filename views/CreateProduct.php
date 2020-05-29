@@ -1,9 +1,5 @@
-<?php require_once('parts/header.php'); ?>
-<?php 
-	if(!isset($_SESSION['userStatus']) || $_SESSION['userStatus'] < 1):
-		 Controller::redirect('index?acces_denied');
-	else:
-?>
+<?php require_once('parts/header2.php'); ?>
+
 <div class="container py-4" style="min-height: 100vh;">
 	<h2>Create a Product</h2>
 	<?php if(isset($_GET['message'])): ?>
@@ -27,8 +23,8 @@
 				<label>Image du produit</label>
 
 				<div class="form-group px-3">
-					<div style="min-width:100%; min-height:100px; background-color:#ccc;" >
-						<img class="img-fluid" src="" id="imgDisplay" alt="">
+					<div style="min-height:300px; max-height:500px; overflow:hidden" >
+						<img class="img-fluid" id="imgDisplay" alt="" src="public/img/default_product.jpg">
 					</div>
 				</div>
 				<div class="form-group">
@@ -111,9 +107,6 @@
 		<button type="submit" class="btn btn-primary" name="submit">Creer</button>
 	</form>
 </div>
-<?php
-	
-	endif;
-?>
+
 
 <?php require_once('parts/footer.php'); ?>

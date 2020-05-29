@@ -16,10 +16,10 @@ class Database {
       return $pdo;
     }
   
-    public static function query($query, $params = array()) {
+    public static function query($query) {
       $stmt = self::con()->prepare($query);
       $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      $stmt->execute($params);
+      $stmt->execute();
       $data = $stmt->fetchAll();
       if(empty($data))
         $data = null;
@@ -56,6 +56,11 @@ class Database {
       self::query("ALTER TABLE compte AUTO_INCREMENT = 1;");
       self::query("INSERT INTO  compte(email ,  username ,  password ,   userId ,  imgProfil ,  statut ) VALUES ('admin@admin.com', 'admin', '123456789',  1, null, 2)");
 
+      // delete Panier
+      self::query("DELETE FROM panier");
+      self::query("ALTER TABLE panier AUTO_INCREMENT = 1;");
+
+      header("Location: index");
     }
     
     private static function deleteUpload($path) {

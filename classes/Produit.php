@@ -29,6 +29,9 @@ class Produit extends Database{
     public static function selectProduct($condition,$value) {
         return Database::query("SELECT * FROM produit WHERE $condition = '$value'")[0];
     }
+    public static function selectProductLimit($limit=1) {
+        return Database::query("SELECT * FROM produit ORDER BY idProd LIMIT $limit");
+    }
 
 
     public function createProductDB() {

@@ -3,7 +3,7 @@
         + Active Menu
         + About Us
         + Footer
-        + Marque Menu
+        + Marque Menu navigation
         + Contact
         + DATABASE cascade
 
@@ -12,11 +12,13 @@
         + Img Update
         + Login with Username
 
+    - Panier 
+        + Group by (To decrease the size of panier in the header)
+        + Chekout
+        
     - Product
         + Search
 
     - Message
     
     - Order
-
-    - Panier 

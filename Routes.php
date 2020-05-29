@@ -26,9 +26,9 @@
         Controller::CreateView('Register');
     });
 
-    Route::set('users', function() {
+    Route::set('allUsers', function() {
         $users = User::allUsers();
-        Controller::CreateView('Users',$users);
+        Controller::CreateView('AllUsers',$users);
     });
 
     Route::set('createUser.php', function() {
@@ -118,13 +118,21 @@
     Route::set('allBrands', function() {
         Controller::CreateView('AllBrands');
     });
-    Route::set('reset', function() {
-        Database::resetAll();
+    
+    
+    // Panier
+    Route::set('addToPanier.php', function() {
+        $panier = new PanierController();
+        $panier->addToPanier();
     });
     
+
+
     
-
-
+//reset
+Route::set('reset', function() {
+        Database::resetAll();
+    });
     
 
     

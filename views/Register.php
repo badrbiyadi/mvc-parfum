@@ -107,7 +107,7 @@
         <form class="border py-5 px-3" action="createCompte.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-4"><img class="img-fluid img-circle" id="imgDisplay" ></div>
+                <div class="col-4" style="min-height: 300px;max-height: 300px; overflow:hidden"><img class="img-fluid img-circle" id="imgDisplay" src="public/img/default_user.jpg"></div>
                 <div class="col-4"></div>
             </div>
                 
@@ -139,7 +139,6 @@
             <div class="form-group">
                 <label>Photo de profil</label>
                 <input type="file" class="form-control-file" name="file" id="file" >
-                <input type="hidden" name="hasImg" id="hasImg" value="0">
             </div>
                 
             <button type="submit" class="btn btn-primary" name="submit">Envoyer</button>

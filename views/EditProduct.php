@@ -31,12 +31,12 @@
 				<label>Image du produit</label>
 
 				<div class="form-group px-3">
-					<div style="min-width:100%; min-height:100px; background-color:#ccc;" >
-						<img class="img-fluid" src="<?= (!empty($prod['imgProd'])) ? "public/upload/products/".$prod['imgProd'] : '' ;  ?>" id="imgDisplay" alt="">
+					<div style="min-height:300px; max-height:500px; overflow:hidden" >
+						<img class="img-fluid" src="<?= (!empty($prod['imgProd'])) ? "public/upload/products/".$prod['imgProd'] : 'public/img/default_product.jpg' ;  ?>" id="imgDisplay" alt="">
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="file" class="form-control-file" id="file" name="file">
+					<input type="file" class="form-control-file" id="file" name="file" value="c:public/upload/products/<?= $prod['imgProd'] ?>">
 				</div>
 			</div>
 			<div class="col-md-6">
